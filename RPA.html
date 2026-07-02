@@ -6,7 +6,6 @@
     <title>Robotic Process Automation</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- CSS de AOS para las animaciones -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -53,7 +52,7 @@
         </div>
     </div>
 
-    <!-- HEADER / NAVEGACIÓN -->
+    <!-- HEADER -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-[#111827] transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -73,8 +72,8 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </a>
                         <div class="absolute top-full left-0 w-64 bg-white shadow-xl border-t-2 border-forest-yellow opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-lg p-2 z-50">
-                            <a href="bi.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Business Intelligence</a>
-                            <a href="rpa.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Robotic Process Automation</a>
+                            <a href="BI.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Business Intelligence</a>
+                            <a href="RPA.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Robotic Process Automation</a>
                             <a href="DDS.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Desarrollo de Software</a>
                         </div>
                     </div>
@@ -104,8 +103,8 @@
                     <button id="toggle-submenu" class="text-forest-yellow font-bold text-2xl px-2">+</button>
                 </div>
                 <div id="mobile-submenu" class="hidden flex-col pl-4 mt-4 space-y-3 border-l-2 border-forest-yellow/30">
-                    <a href="bi.html" class="text-gray-300 text-sm hover:text-forest-yellow">Business Intelligence</a>
-                    <a href="rpa.html" class="text-gray-300 text-sm hover:text-forest-yellow">RPA & Data Engineering</a>
+                    <a href="BI.html" class="text-gray-300 text-sm hover:text-forest-yellow">Business Intelligence</a>
+                    <a href="RPA.html" class="text-gray-300 text-sm hover:text-forest-yellow">RPA & Data Engineering</a>
                     <a href="DDS.html" class="text-gray-300 text-sm hover:text-forest-yellow">Desarrollo de Software</a>
                 </div>
             </div>
@@ -121,7 +120,6 @@
     <!-- MAIN CONTENT -->
     <main class="flex-grow pt-16">
         
-        <!-- HERO SECTION -->
         <section class="relative py-24 px-6 overflow-hidden bg-cover bg-center">
             <div class="absolute bg-cover bg-center inset-0 bg-deep-blue/90" style="background-image: url('assets/img/fondos/fondo3.avif');"></div>
             <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#F6C500 1px, transparent 1px); background-size: 30px 30px;"></div>
@@ -317,9 +315,9 @@
                     <div>
                         <h4 class="font-bold text-xs text-ostion mb-4 uppercase tracking-widest border-b border-forest-yellow pb-2">Soluciones</h4>
                         <ul class="space-y-3 text-sm text-gray-400">
-                            <li><a href="bi.html" class="hover:text-forest-yellow transition">Business Intelligence</a></li>
-                            <li><a href="rpa.html" class="hover:text-forest-yellow transition">Robotic Process Automation</a></li>
-                            <li><a href="dds.html" class="hover:text-forest-yellow transition">Desarrollo de Software</a></li>
+                            <li><a href="BI.html" class="hover:text-forest-yellow transition">Business Intelligence</a></li>
+                            <li><a href="RPA.html" class="hover:text-forest-yellow transition">Robotic Process Automation</a></li>
+                            <li><a href="DDS.html" class="hover:text-forest-yellow transition">Desarrollo de Software</a></li>
                         </ul>
                     </div>
 
@@ -348,7 +346,6 @@
     <script src="js/main.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicialización AOS
         AOS.init({ duration: 800, once: false, mirror: true, offset: 50 });
 
         const menuBtn = document.getElementById('menu-btn');
