@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Intelligence</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Añadido CSS de AOS para las animaciones -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'energy-blue': '#1F4589',
+                        'deep-blue': '#162F73',
+                        'forest-yellow': '#F6C500',
+                        'ostion': '#F3F1EE',
+                        'dark-blue': '#111827',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        mono: ['"Courier New"', 'Courier', 'monospace'] 
+                    },
+                    keyframes: {
+                        deslizar: {
+                            '0%, 100%': { transform: 'translateX(-100%)' },
+                            '50%': { transform: 'translateX(200%)' } 
+                        }
+                    },
+                    animation: {
+                        deslizar: 'deslizar 2s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-ostion text-deep-blue antialiased flex flex-col min-h-screen">
+
+    <div id="preloader" class="fixed inset-0 z-[100] bg-deep-blue flex flex-col items-center justify-center transition-opacity duration-500 font-mono">
+        <div class="animate-pulse mb-6 flex items-center justify-center space-x-2">
+            <span class="text-7xl font-bold text-forest-yellow ">{</span>
+            <div class="w-4 h-4 rounded-full bg-ostion animate-ping"></div>
+            <span class="text-7xl font-bold text-forest-yellow ">}</span>
+        </div>
+        <div class="w-48 h-1 bg-energy-blue rounded-full overflow-hidden relative">
+            <div class="absolute top-0 left-0 h-full bg-forest-yellow w-1/2 rounded-full animate-deslizar"></div>
+        </div>
+    </div>
+
+<header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-[#111827] transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex-shrink-0">
+                <a href="index.html">
+                    <img src="assets/icons/logo/logoH_BAM.png" alt="Logo Klammer" class="h-12 w-auto object-contain">
+                </a>
+            </div>
+            
+            <nav class="hidden lg:flex items-center space-x-6">
+                <a href="index.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Inicio</a>
+                
+                <!-- SUBMENÚ SOLUCIONES INTEGRADO -->
+                <div class="relative group">
+                    <a href="soluciones.html" class="text-white font-bold hover:text-forest-yellow transition text-base flex items-center gap-1">
+                        Soluciones 
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="absolute top-full left-0 w-64 bg-white shadow-xl border-t-2 border-forest-yellow opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-lg p-2 z-50">
+                        <a href="bi.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Business Intelligence</a>
+                        <a href="rpa.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Robotic Process Automation</a>
+                        <a href="DDS.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Desarrollo de Software</a>
+                    </div>
+                </div>
+
+                <a href="educacion.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Educación</a>
+                <a href="casosexito.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Casos de Éxito</a>
+                <a href="acerca-de.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Acerca de</a>
+                <a href="contacto.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Contacto</a>
+                <a href="soporte.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Soporte</a>
+            </nav>
+
+            <button id="menu-btn" class="lg:hidden text-white p-2 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+    <!-- MENU DESPLEGABLE MÓVIL CON BOTÓN + -->
+    <div id="menu" class="fixed top-0 right-0 h-full w-72 bg-dark-blue z-[60] p-8 shadow-2xl transition-transform duration-300 transform translate-x-full hidden">
+        <button id="close-btn" class="text-white mb-8 block ml-auto">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="flex flex-col space-y-6">
+            <a href="index.html" class="text-white text-lg font-bold hover:text-forest-yellow">Inicio</a>
+            
+            <!-- Submenú móvil -->
+            <div>
+                <div class="flex items-center justify-between">
+                    <a href="soluciones.html" class="text-white text-lg font-bold hover:text-forest-yellow">Soluciones</a>
+                    <button id="toggle-submenu" class="text-forest-yellow font-bold text-2xl px-2">+</button>
+                </div>
+                <div id="mobile-submenu" class="hidden flex-col pl-4 mt-4 space-y-3 border-l-2 border-forest-yellow/30">
+                    <a href="bi.html" class="text-gray-300 text-sm hover:text-forest-yellow">Business Intelligence</a>
+                    <a href="rpa.html" class="text-gray-300 text-sm hover:text-forest-yellow">RPA & Data Engineering</a>
+                    <a href="DDS.html" class="text-gray-300 text-sm hover:text-forest-yellow">Desarrollo de Software</a>
+                </div>
+            </div>
+
+            <a href="educacion.html" class="text-white text-lg font-bold hover:text-forest-yellow">Educación</a>
+            <a href="casosexito.html" class="text-white text-lg font-bold hover:text-forest-yellow">Casos de Éxito</a>
+            <a href="acerca-de.html" class="text-white text-lg font-bold hover:text-forest-yellow">Acerca de</a>
+            <a href="contacto.html" class="text-white text-lg font-bold hover:text-forest-yellow">Contacto</a>
+            <a href="soporte.html" class="text-white text-lg font-bold hover:text-forest-yellow">Soporte</a>
+        </div>
+    </div>
+    <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[55]"></div>
+
+<main class="pt-16 flex-grow">
+    
+    <section class="relative py-28 px-6 overflow-hidden bg-cover bg-center">
+        
+        <div class="absolute bg-cover bg-center inset-0 bg-deep-blue/90" style="background-image: url('assets/img/fondos/fondo3.avif');"></div>
+        
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#F6C500 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            
+            <div data-aos="fade-left" data-aos-duration="1000">
+                <p class=" text-forest-yellow text-sm font-bold uppercase tracking-widest mb-3">Soluciones Avanzadas</p>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Business Intelligence</h1>
+                <div class="h-1 w-24 bg-forest-yellow mb-8"></div>
+                <p class="text-xl text-ostion max-w-lg italic  leading-relaxed">
+                    Conoce Qlik: la herramienta que nos permite descubrir y visualizar los datos para analizar con facilidad y lograr tomar decisiones de manera rápida y certera.
+                </p>
+            </div>
+
+            <div data-aos="fade-left" data-aos-duration="1000" class="flex justify-center md:justify-end relative group">
+                <img src="assets/img/gifs/BI.gif" 
+                     alt="Animación Business Intelligence" 
+                     class="w-full max-w-md lg:max-w-lg object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)]">
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="pt-16 bg-ostion">
+        <div class="max-w-3xl mx-auto px-6 flex justify-center" data-aos="zoom-in" data-aos-duration="1000">
+            <img src="assets/img/notas/1.png" alt="Dashboard de BI" class="w-full h-auto rounded-xl shadow-2xl border-4 border-white object-cover">
+        </div>
+    </section>
+
+    <section class="py-24 bg-ostion max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-deep-blue mb-4">¿Por qué BI?</h2>
+            <div class="h-1 w-16 bg-energy-blue mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 shadow-lg hover:shadow-2xl border-t-4 border-forest-yellow transition-all duration-300 transform hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="0">
+                <div class="w-14 h-14 bg-deep-blue/5 rounded-lg flex items-center justify-center mb-6 text-forest-yellow group-hover:bg-forest-yellow group-hover:text-white transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-3 text-deep-blue">Datos confiables</h3>
+                <p class="text-sm text-energy-blue leading-relaxed">Información precisa, limpia y auditada para garantizar una gestión corporativa segura y estructurada.</p>
+            </div>
+            <div class="bg-white p-8 shadow-lg hover:shadow-2xl border-t-4 border-forest-yellow transition-all duration-300 transform hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="150">
+                <div class="w-14 h-14 bg-deep-blue/5 rounded-lg flex items-center justify-center mb-6 text-forest-yellow group-hover:bg-forest-yellow group-hover:text-white transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-3 text-deep-blue">Tiempo real</h3>
+                <p class="text-sm text-energy-blue leading-relaxed">Acceso a la información en el momento exacto que la necesitas, eliminando reportes obsoletos.</p>
+            </div>
+            <div class="bg-white p-8 shadow-lg hover:shadow-2xl border-t-4 border-forest-yellow transition-all duration-300 transform hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-14 h-14 bg-deep-blue/5 rounded-lg flex items-center justify-center mb-6 text-forest-yellow group-hover:bg-forest-yellow group-hover:text-white transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-3 text-deep-blue">Información procesable</h3>
+                <p class="text-sm text-energy-blue leading-relaxed">Obtén valor real de tus datos. Traduce los números en acciones y trabaja de manera más inteligente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA (Proceso ETL con iconos transparentes sin bordes) -->
+    <section class="py-24 bg-forest-yellow bg-cover bc-center border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20" data-aos="zoom-in">
+                <h2 class="text-4xl font-bold text-deep-blue mb-4">¿Cómo funciona?</h2>
+                <p class="text-energy-blue max-w-2xl mx-auto">El ciclo de vida de tus datos a través de nuestra metodología especializada.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12 text-center relative">
+                
+                <!-- Línea conectora de fondo (visible solo en PC) -->
+                <div class="hidden md:block absolute top-16 left-[15%] right-[15%] h-0.5 bg-gray-200 z-0"></div>
+
+                <!-- Paso 1 -->
+                <div class="group relative z-10" data-aos="fade-right" data-aos-delay="0">
+                    <div class="w-32 h-32 mx-auto mb-6 relative">
+                        <img src="assets/icons/BI/7.png" alt="Extraction" class="w-full h-full object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="text-5xl text-deep-blue font-black mb-2 opacity-30 group-hover:opacity-100 transition duration-300">01</div>
+                    <h3 class="font-bold text-2xl mb-3 text-deep-blue">Extraction</h3>
+                    <p class="text-sm text-energy-blue px-4">Lo primero es identificar los diferentes orígenes de donde proviene tu información la cual dará vida a tu nueva manera de analizar los datos.</p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="group relative z-10" data-aos="fade-up" data-aos-delay="150">
+                    <div class="w-32 h-32 mx-auto mb-6 relative">
+                        <img src="assets/icons/BI/8.png" alt="Transformation" class="w-full h-full object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="text-5xl text-deep-blue font-black mb-2 opacity-30 group-hover:opacity-100 transition duration-300">02</div>
+                    <h3 class="font-bold text-2xl mb-3 text-deep-blue">Transformation</h3>
+                    <p class="text-sm text-energy-blue px-4">En esta etapa comienza la magia, a través de funciones y algoritmos, transformamos y centralizamos tus datos, creando un modelo único de datos el cual nos ayudará a poder representar gráficamente la información.</p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="group relative z-10" data-aos="fade-left" data-aos-delay="300">
+                    <div class="w-32 h-32 mx-auto mb-6 relative">
+                        <img src="assets/icons/BI/9.png" alt="Load" class="w-full h-full object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="text-5xl text-deep-blue font-black mb-2 opacity-30 group-hover:opacity-100 transition duration-300">03</div>
+                    <h3 class="font-bold text-2xl mb-3 text-deep-blue">Load</h3>
+                    <p class="text-sm text-energy-blue px-4">Tu información se representa gráficamente. Comienza a explorar, analizar y mejorar tu toma de decisiones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS  -->
+    <section class="py-24 max-w-7xl mx-auto px-4">
+        <h2 class="text-4xl font-bold text-deep-blue mb-16 text-center" data-aos="fade-up">Beneficios del Sistema</h2>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Beneficio 1 -->
+            <div class="bg-white p-8 shadow hover:shadow-xl border-l-4 border-forest-yellow hover:bg-energy-blue hover:text-white transition-all duration-300 group flex flex-col items-start" data-aos="fade-up" data-aos-delay="0">
+                <img src="assets/icons/icons/conectar.png" alt="Conecta" class="w-12 h-12 mb-4 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                
+                <h4 class="font-bold mb-3 text-xl text-energy-blue group-hover:text-forest-yellow">Conecta</h4>
+                <p class="text-sm text-gray-500 group-hover:text-ostion">Conexión a cientos de orígenes para preparar de manera sencilla tus datos y crear reportes en minutos.</p>
+            </div>
+            
+            <!-- Beneficio 2 -->
+            <div class="bg-white p-8 shadow hover:shadow-xl border-l-4 border-forest-yellow hover:bg-energy-blue hover:text-white transition-all duration-300 group flex flex-col items-start" data-aos="fade-up" data-aos-delay="100">
+                <img src="assets/icons/icons/seguridad.png" alt="Administra" class="w-12 h-12 mb-4 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                
+                <h4 class="font-bold mb-3 text-xl text-energy-blue group-hover:text-forest-yellow">Administra</h4>
+                <p class="text-sm text-gray-500 group-hover:text-ostion">Gestión simplificada. Mantén tu organización siempre protegida, al día y bajo estrictos estándares de seguridad.</p>
+            </div>
+            
+            <!-- Beneficio 3 -->
+            <div class="bg-white p-8 shadow hover:shadow-xl border-l-4 border-forest-yellow hover:bg-energy-blue hover:text-white transition-all duration-300 group flex flex-col items-start" data-aos="fade-up" data-aos-delay="200">
+                <img src="assets/icons/BI/3.png" alt="Crea" class="w-12 h-12 mb-4 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                
+                <h4 class="font-bold mb-3 text-xl text-energy-blue group-hover:text-forest-yellow">Crea</h4>
+                <p class="text-sm text-gray-500 group-hover:text-ostion">Los datos cobran vida. Creación de reportes atractivos, interactivos y responsivos para cualquier dispositivo.</p>
+            </div>
+            
+            <!-- Beneficio 4 -->
+            <div class="bg-white p-8 shadow hover:shadow-xl border-l-4 border-energy-blue hover:bg-energy-blue hover:text-white transition-all duration-300 group flex flex-col items-start" data-aos="fade-up" data-aos-delay="0">
+                <img src="assets/icons/BI/4.png" alt="Visualiza" class="w-12 h-12 mb-4 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                
+                <h4 class="font-bold mb-3 text-xl text-energy-blue group-hover:text-forest-yellow">Visualiza</h4>
+                <p class="text-sm text-gray-500 group-hover:text-ostion">Visualizaciones interactivas de autoservicio y herramientas intuitivas para realizar análisis profundos.</p>
+            </div>
+            
+            <!-- Beneficio 5 -->
+            <div class="bg-white p-8 shadow hover:shadow-xl border-l-4 border-energy-blue hover:bg-energy-blue hover:text-white transition-all duration-300 group flex flex-col items-start" data-aos="fade-up" data-aos-delay="100">
+                <img src="assets/icons/BI/5.png" alt="Desarrolla" class="w-12 h-12 mb-4 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                
+                <h4 class="font-bold mb-3 text-xl text-energy-blue group-hover:text-forest-yellow">Desarrolla</h4>
+                <p class="text-sm text-gray-500 group-hover:text-ostion">Con una gran gama de opciones integradas, crea, desarrolla e implementa reportes completos en corto tiempo.</p>
+            </div>
+            
+            <!-- Beneficio 6 -->
+            <div class="bg-white p-8 shadow hover:shadow-xl border-l-4 border-energy-blue hover:bg-energy-blue hover:text-white transition-all duration-300 group flex flex-col items-start" data-aos="fade-up" data-aos-delay="200">
+                <img src="assets/icons/BI/6.png" alt="Comparte" class="w-12 h-12 mb-4 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                
+                <h4 class="font-bold mb-3 text-xl text-energy-blue group-hover:text-forest-yellow">Comparte</h4>
+                <p class="text-sm text-gray-500 group-hover:text-ostion">Sé parte de la experiencia. Tienes disponible explorar y compartir tus creaciones desde cualquier dispositivo.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-20 bg-forest-yellow text-center px-4 shadow-inner" data-aos="zoom-in">
+        <h2 class="text-3xl font-bold text-deep-blue mb-4">¿Estás interesado en adquirir una solución de BI?</h2>
+        <p class="mb-10 text-deep-blue/80 font-medium max-w-2xl mx-auto">Contacta a nuestros asesores de venta para una atención personalizada y da el siguiente paso en la evolución de tu data.</p>
+        <a href="contacto.html" class="inline-block bg-deep-blue text-white px-10 py-4 font-bold hover:bg-energy-blue transition transform hover:scale-105 duration-300 shadow-xl">
+            CONTACTAR ASESOR
+        </a>
+    </section>
+
+</main>
+
+    <footer class="bg-deep-blue text-ostion pt-16 pb-8 relative overflow-hidden">
+        
+        <div class="absolute inset-0 opacity-10 pointer-events-none" 
+            style="background-image: linear-gradient(#6B7280 1px, transparent 1px), linear-gradient(90deg, #6B7280 1px, transparent 1px); background-size: 30px 30px;">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row gap-12 mb-12">
+                
+                <div class="flex flex-col items-start w-full md:w-1/3">
+                    <a href="index.html">
+                        <img src="assets/icons/logo/logoRGB_BAM.png" alt="Logo Klammer" class="h-24 w-auto mb-6 object-contain">
+                    </a>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center font-bold text-sm hover:bg-forest-yellow hover:text-deep-blue transition">in</a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center font-bold text-sm hover:bg-forest-yellow hover:text-deep-blue transition">X</a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center font-bold text-sm hover:bg-forest-yellow hover:text-deep-blue transition">f</a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full md:w-2/3">
+                    <div>
+                        <h4 class="font-bold text-xs text-ostion mb-4 uppercase tracking-widest border-b border-forest-yellow pb-2">Sobre Nosotros</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="acerca-de.html" class="hover:text-forest-yellow transition">Acerca de</a></li>
+                            <li><a href="educacion.html" class="hover:text-forest-yellow transition">Educación</a></li>
+                            <li><a href="casosexito.html" class="hover:text-forest-yellow transition">Casos de éxito</a></li>
+                            <li><a href="soporte.html" class="hover:text-forest-yellow transition">Soporte</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xs text-ostion mb-4 uppercase tracking-widest border-b border-forest-yellow pb-2">Soluciones</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="bi.html" class="hover:text-forest-yellow transition">Business Intelligence</a></li>
+                            <li><a href="rpa.html" class="hover:text-forest-yellow transition">Robotic Process Automation</a></li>
+                            <li><a href="dds.html" class="hover:text-forest-yellow transition">Desarrollo de Software</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xs text-ostion mb-4 uppercase tracking-widest border-b border-forest-yellow pb-2">Contáctanos</h4>
+                        <a href="mailto:contacto@klammer.com.mx" class="text-sm text-gray-400 mb-2 hover:text-forest-yellow transition block">
+                            contacto@klammer.com.mx
+                        </a>
+                        <p class="text-sm text-gray-400">T. 871.259.8460</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-forest-yellow flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Klammer. Todos los derechos reservados.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition">Legal</a>
+                    <a href="#" class="hover:text-white transition">Privacidad</a>
+                    <a href="#" class="hover:text-white transition">Preferencias</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+
+    <!-- Script de AOS para las animaciones -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Inicialización de Animaciones AOS
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true,
+            offset: 50
+        });
+
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const menu = document.getElementById('menu');
+        const overlay = document.getElementById('overlay');
+        const header = document.getElementById('main-header');
+
+        // Scroll: Efecto vidrio en Header
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-dark-blue/90', 'backdrop-blur-sm', 'shadow-md');
+            } else {
+                header.classList.remove('bg-dark-blue/90', 'backdrop-blur-sm', 'shadow-md');
+            }
+        });
+
+        // Funciones de Menú
+        const closeMenu = () => {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            setTimeout(() => menu.classList.add('hidden'), 300);
+        };
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.remove('hidden');
+            setTimeout(() => {
+                menu.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            }, 10);
+        });
+
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        const toggleSubmenu = document.getElementById('toggle-submenu');
+        const mobileSubmenu = document.getElementById('mobile-submenu');
+
+        toggleSubmenu.addEventListener('click', () => {
+            mobileSubmenu.classList.toggle('hidden');
+            mobileSubmenu.classList.toggle('flex');
+            // Cambiamos el signo entre + y -
+            toggleSubmenu.innerText = mobileSubmenu.classList.contains('hidden') ? '+' : '-';
+        });
+
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.classList.add('opacity-0');
+            setTimeout(() => preloader.style.display = 'none', 500);
+        });
+    </script>
+</body>
+</html>
