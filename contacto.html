@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -82,7 +83,7 @@
                     <a href="educacion.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Educación</a>
                     <a href="casosexito.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Casos de Éxito</a>
                     <a href="acerca-de.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Acerca de</a>
-                    <a href="contacto.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Contacto</a>
+                    <a href="contacto.html" class="text-forest-yellow font-bold transition text-base">Contacto</a>
                     <a href="soporte.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Soporte</a>
                 </nav>
 
@@ -112,7 +113,7 @@
             <a href="educacion.html" class="text-white text-lg font-bold hover:text-forest-yellow">Educación</a>
             <a href="casosexito.html" class="text-white text-lg font-bold hover:text-forest-yellow">Casos de Éxito</a>
             <a href="acerca-de.html" class="text-white text-lg font-bold hover:text-forest-yellow">Acerca de</a>
-            <a href="contacto.html" class="text-white text-lg font-bold hover:text-forest-yellow">Contacto</a>
+            <a href="contacto.html" class="text-forest-yellow text-lg font-bold">Contacto</a>
             <a href="soporte.html" class="text-white text-lg font-bold hover:text-forest-yellow">Soporte</a>
         </div>
     </div>
@@ -120,10 +121,10 @@
 
     <main class="flex-grow pt-16">
         
-        <section class="text-ostion py-24 px-6 relative overflow-hidden min-h-[600px] flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('assets/img/fondos/fondoS.jpg');">
+        <section class="text-ostion py-24 px-6 relative overflow-hidden min-h-[600px] flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('assets/img/fondos/fondo1.jpg');">
             <div class="max-w-4xl mx-auto relative z-10">
-                <p class=" text-forest-yellow text-sm md:text-base mb-4 font-bold uppercase tracking-widest animate-pulse">
-                    // Estamos listos para atenderte
+                <p class=" text-forest-yellow text-sm md:text-base mb-4 font-bold uppercase tracking-widest">
+                    Estamos listos para atenderte
                 </p>
                 <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
                     Contacto
@@ -190,10 +191,19 @@
                     <a href="index.html">
                         <img src="assets/icons/logo/logoRGB_BAM.png" alt="Logo Klammer" class="h-24 w-auto mb-6 object-contain">
                     </a>
-                    <div class="flex gap-3">
-                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center font-bold text-sm hover:bg-forest-yellow hover:text-deep-blue transition">in</a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center font-bold text-sm hover:bg-forest-yellow hover:text-deep-blue transition">X</a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center font-bold text-sm hover:bg-forest-yellow hover:text-deep-blue transition">f</a>
+                    <div class="flex gap-4">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/company/tiklammer" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center text-ostion hover:bg-forest-yellow hover:text-deep-blue transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/tiklammer?igsh=cDcwb254Z3FpeTZj" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center text-ostion hover:bg-forest-yellow hover:text-deep-blue transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center text-ostion hover:bg-forest-yellow hover:text-deep-blue transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -230,13 +240,12 @@
             <div class="pt-6 border-t border-forest-yellow flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
                 <p>&copy; 2026 Klammer. Todos los derechos reservados.</p>
                 <div class="flex gap-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white transition">Legal</a>
-                    <a href="#" class="hover:text-white transition">Privacidad</a>
-                    <a href="#" class="hover:text-white transition">Preferencias</a>
+                    <a href="dataPrivacy.html" class="hover:text-white transition">Data Privacy</a>
                 </div>
             </div>
         </div>
     </footer>
+    
     <script src="js/main.js"></script>
     <script>
         const menuBtn = document.getElementById('menu-btn');

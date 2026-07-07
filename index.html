@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -73,7 +74,7 @@
                 </div>
                 
                 <nav class="hidden lg:flex space-x-6">
-                    <a href="index.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Inicio</a>
+                    <a href="index.html" class="text-forest-yellow font-bold hover:text-forest-yellow transition text-base">Inicio</a>
                     
                     <!-- SUBMENÚ SOLUCIONES -->
                     <div class="relative group">
@@ -107,7 +108,7 @@
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         <div class="flex flex-col space-y-6">
-            <a href="index.html" class="text-white text-lg font-bold hover:text-forest-yellow">Inicio</a>
+            <a href="index.html" class="text-forest-yellow text-lg font-bold hover:text-forest-yellow">Inicio</a>
             <div>
             <div class="flex items-center justify-between">
                 <a href="soluciones.html" class="text-white text-lg font-bold hover:text-forest-yellow">Soluciones</a>
@@ -238,10 +239,10 @@
                 </div>
 
                 <div class="w-full lg:w-1/3 flex justify-center py-16 lg:py-0 lg:pt-16" data-aos="zoom-in">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
-                        <img src="assets/icons/logo/IsotipoAm.png" 
+                    <div id="logo-container" class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center transition-transform duration-300">
+                        <img id="animated-logo" src="assets/icons/logo/IsotipoAm.png" 
                             alt="Logo Animado" 
-                            class="w-48 h-48 md:w-64 md:h-64 object-contain drop-shadow-xl animate-latido">
+                            class="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-xl">
                     </div>
                 </div>
 
@@ -381,32 +382,35 @@
 
         <div class="swiper mySwiper max-w-6xl mx-auto px-4 relative">
             <div class="swiper-wrapper">
-                <div class="swiper-slide h-32 flex items-center justify-center p-4 bg-dark-gray grayscale hover:grayscale-0 transition duration-500 shadow-md">
-                    <img src="assets/icons/clientes/TKL_Logo_Looper.PNG" alt="Looper" class="max-h-20 max-w-[150px] object-contain">
+                <div class="swiper-slide h-32 flex items-center justify-center p-4 shadow-md">
+                    <img src="assets/icons/clientes/logo_performer.png" alt="Performer Logistics" class="max-h-60 max-w-[150px] object-contain">
                 </div>
-                <div class="swiper-slide h-32 flex items-center justify-center p-4 bg-dark-gray grayscale hover:grayscale-0 transition duration-500 shadow-md">
-                    <img src="assets/icons/clientes/logo_kosmos.webp" alt="Kosmos Logistics" class="max-h-20 max-w-[150px] object-contain">
+                <div class="swiper-slide h-32 flex items-center justify-center p-4 shadow-md">
+                    <img src="assets/icons/clientes/logo_kosmosL.webp" alt="Kosmos Logistics" class="max-h-60 max-w-auto object-contain">
                 </div>
-                <div class="swiper-slide h-32 flex items-center justify-center p-4 bg-dark-gray grayscale hover:grayscale-0 transition duration-500 shadow-md">
-                    <img src="assets/icons/clientes/TKL_Logo_Metrica.png" alt="Metrica Movil" class="max-h-20 max-w-[150px] object-contain">
+                <div class="swiper-slide h-32 flex items-center justify-center p-4 shadow-md">
+                    <img src="assets/icons/clientes/logo_metrica.png" alt="Metrica Movil" class="max-h-30 max-w-[150px] object-contain">
                 </div>
-                <div class="swiper-slide h-32 flex items-center justify-center p-4 bg-dark-gray grayscale hover:grayscale-0 transition duration-500 shadow-md">
+                <div class="swiper-slide h-32 flex items-center justify-center p-4 shadow-md">
                     <img src="assets/icons/clientes/TKL_Logo_Afirme.png" alt="Afirme" class="max-h-20 max-w-[150px] object-contain">
                 </div>
-                <div class="swiper-slide h-32 flex items-center justify-center p-4 bg-dark-gray grayscale hover:grayscale-0 transition duration-500 shadow-md">
-                    <img src="assets/icons/clientes/TKL_Logo_Energeticos_Nieto.png" alt="Energéticos Nieto" class="max-h-20 max-w-[150px] object-contain">
+                <div class="swiper-slide h-32 flex items-center justify-center p-4 shadow-md">
+                    <img src="assets/icons/clientes/TKL_Logo_Energeticos_Nieto.png" alt="Energéticos Nieto" class="max-h-30 max-w-[150px] object-contain">
                 </div>
-                <div class="swiper-slide h-32 flex items-center justify-center p-4 bg-dark-gray grayscale hover:grayscale-0 transition duration-500 shadow-md">
-                    <img src="assets/icons/clientes/TKL_Logo_Peninsula.png" alt="Peninsula" class="max-h-20 max-w-[150px] object-contain">
+                <div class="swiper-slide h-32 flex items-center justify-center p-4 shadow-md">
+                    <img src="assets/icons/clientes/logo_peninsula.webp" alt="Peninsula" class="max-h-40 max-w-[150px] object-contain">
                 </div>
-                <div class="swiper-slide h-32 flex items-center justify-center p-4 bg-dark-gray grayscale hover:grayscale-0 transition duration-500 shadow-md">
-                    <img src="assets/icons/clientes/TKL_Logo_Sanatorio_Español.png" alt="Sanatorio Español" class="max-h-20 max-w-[150px] object-contain">
+                <div class="swiper-slide h-32 flex items-center justify-center p-4 shadow-md">
+                    <img src="assets/icons/clientes/logo_sanatorio.png" alt="Sanatorio Español" class="max-h-30 max-w-[150px] object-contain">
                 </div>
-                <div class="swiper-slide h-32 flex items-center justify-center p-4 bg-dark-gray grayscale hover:grayscale-0 transition duration-500 shadow-md">
-                    <img src="assets/icons/clientes/TKL_Logo_Tigres_UANL.png" alt="Tigres UANL" class="max-h-20 max-w-[150px] object-contain">
+                <div class="swiper-slide h-32 flex items-center justify-center p-4 shadow-md">
+                    <img src="assets/icons/clientes/TKL_Logo_Tigres_UANL.png" alt="Tigres UANL" class="max-h-20 max-w-auto object-contain">
                 </div>
-                <div class="swiper-slide h-32 flex items-center justify-center p-4 bg-dark-gray grayscale hover:grayscale-0 transition duration-500 shadow-md">
+                <div class="swiper-slide h-32 flex items-center justify-center p-4 shadow-md">
                     <img src="assets/icons/clientes/TKL_Logo_Versa.PNG" alt="Grupo Versa" class="max-h-20 max-w-[150px] object-contain">
+                </div>
+                <div class="swiper-slide h-32 flex items-center justify-center p-4 shadow-md">
+                    <img src="assets/icons/clientes/logo_simsa.png" alt="Grupo Simsa" class="max-h-30 max-w-[150px] object-contain">
                 </div>
             </div>
     <div class="swiper-button-next !text-forest-yellow"></div>
@@ -430,10 +434,19 @@
                     <a href="index.html">
                         <img src="assets/icons/logo/logoRGB_BAM.png" alt="Logo Klammer" class="h-24 w-auto mb-6 object-contain">
                     </a>
-                    <div class="flex gap-3">
-                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center font-bold text-sm hover:bg-forest-yellow hover:text-deep-blue transition">in</a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center font-bold text-sm hover:bg-forest-yellow hover:text-deep-blue transition">X</a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center font-bold text-sm hover:bg-forest-yellow hover:text-deep-blue transition">f</a>
+                    <div class="flex gap-4">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/company/tiklammer" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center text-ostion hover:bg-forest-yellow hover:text-deep-blue transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/tiklammer?igsh=cDcwb254Z3FpeTZj" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center text-ostion hover:bg-forest-yellow hover:text-deep-blue transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center text-ostion hover:bg-forest-yellow hover:text-deep-blue transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -470,13 +483,12 @@
             <div class="pt-6 border-t border-forest-yellow flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
                 <p>&copy; 2026 Klammer. Todos los derechos reservados.</p>
                 <div class="flex gap-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white transition">Legal</a>
-                    <a href="#" class="hover:text-white transition">Privacidad</a>
-                    <a href="#" class="hover:text-white transition">Preferencias</a>
+                    <a href="dataPrivacy.html" class="hover:text-white transition">Data Privacy</a>
                 </div>
             </div>
         </div>
     </footer>
+    
     <script src="js/main.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -559,7 +571,28 @@
       768: { slidesPerView: 4, spaceBetween: 30 }
     }
   });
-        
+
+      // Esperamos a que el contenido HTML esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+        const logo = document.getElementById('animated-logo');
+        const container = document.getElementById('logo-container');
+
+        // Verificamos que existan antes de ejecutar
+        if (logo && container) {
+            window.addEventListener('scroll', () => {
+                const rect = container.getBoundingClientRect();
+                const scrollPos = rect.top + rect.height / 2;
+                const windowHeight = window.innerHeight;
+                
+                const distanceToCenter = Math.abs(scrollPos - windowHeight / 2);
+                const maxDistance = windowHeight / 2;
+                
+                const scale = Math.max(1, 3 - (distanceToCenter / maxDistance)); 
+
+                logo.style.transform = `scale(${scale})`;
+            });
+        }
+    });
     </script>
 </body>
 </html>

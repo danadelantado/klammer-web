@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soluciones</title>
-    
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Data Privacy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -19,6 +20,9 @@
                         'forest-yellow': '#F6C500',
                         'ostion': '#F3F1EE',
                         'dark-blue': '#111827',
+                        'dark-red': '#eb4c44',
+                        'dark-gray': '#606060',
+                        'light-blue': '#92b4f0',
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
@@ -28,30 +32,34 @@
                         deslizar: {
                             '0%, 100%': { transform: 'translateX(-100%)' },
                             '50%': { transform: 'translateX(200%)' } 
+                        },
+                        latido: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.1)' }
                         }
                     },
                     animation: {
-                        deslizar: 'deslizar 2s ease-in-out infinite'
-                    }
+                        deslizar: 'deslizar 2s ease-in-out infinite',
+                        latido: 'latido 3s ease-in-out infinite'
+                    },
+                    
                 }
             }
         }
     </script>
-
-    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-ostion text-deep-blue antialiased flex flex-col min-h-screen">
+   <body class="bg-ostion text-deep-blue antialiased flex flex-col min-h-dvh">
 
-    <div id="preloader" class="fixed inset-0 z-[100] bg-deep-blue flex flex-col items-center justify-center transition-opacity duration-500 font-mono">
-        <div class="animate-pulse mb-6 flex items-center justify-center space-x-2">
-            <span class="text-7xl font-bold text-forest-yellow ">{</span>
-            <div class="w-4 h-4 rounded-full bg-ostion animate-ping"></div>
-            <span class="text-7xl font-bold text-forest-yellow ">}</span>
+        <div id="preloader" class="fixed inset-0 z-[100] bg-deep-blue flex flex-col items-center justify-center transition-opacity duration-500">
+            <div class="animate-pulse mb-6 flex items-center justify-center space-x-2 font-mono">
+                <span class="text-7xl font-bold text-forest-yellow">{</span>
+                <div class="w-4 h-4 rounded-full bg-ostion animate-ping"></div>
+                <span class="text-7xl font-bold text-forest-yellow">}</span>
+            </div>
+            <div class="w-48 h-1 bg-energy-blue rounded-full overflow-hidden relative">
+                <div class="absolute top-0 left-0 h-full bg-forest-yellow w-1/2 rounded-full animate-deslizar"></div>
+            </div>
         </div>
-        <div class="w-48 h-1 bg-energy-blue rounded-full overflow-hidden relative">
-            <div class="absolute top-0 left-0 h-full bg-forest-yellow w-1/2 rounded-full animate-deslizar"></div>
-        </div>
-    </div>
 
     <!-- HEADER -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-[#111827] transition-all duration-300">
@@ -68,7 +76,7 @@
                     
                     <!-- SUBMENÚ SOLUCIONES -->
                     <div class="relative group">
-                        <a href="soluciones.html" class="text-forest-yellow font-bold hover:text-forest-yellow transition text-base flex items-center gap-1">
+                        <a href="soluciones.html" class="text-white font-bold hover:text-forest-yellow transition text-base flex items-center gap-1">
                             Soluciones 
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </a>
@@ -101,7 +109,7 @@
             <a href="index.html" class="text-white text-lg font-bold hover:text-forest-yellow">Inicio</a>
             <div>
             <div class="flex items-center justify-between">
-                <a href="soluciones.html" class="text-forest-yellow text-lg font-bold hover:text-forest-yellow">Soluciones</a>
+                <a href="soluciones.html" class="text-white text-lg font-bold hover:text-forest-yellow">Soluciones</a>
                 <button id="toggle-submenu" class="text-forest-yellow font-bold text-2xl px-2">+</button>
             </div>
             <!-- Submenú oculto por defecto -->
@@ -120,124 +128,171 @@
     </div>
     <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[55]"></div>
 
-    <main class="flex-grow pt-16">
-        
-        <section class="text-ostion py-24 px-6 relative overflow-hidden min-h-[600px] flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('assets/img/fondos/fondoA.jpg');">
-            <div class="max-w-4xl mx-auto relative z-10">
-                <p class=" text-forest-yellow text-sm md:text-base mb-4 font-bold uppercase tracking-widest">
-                    Portafolio de Servicios Corporativos
+    <!-- CONTENIDO CENTRAL -->
+    <main class="flex-grow pt-16 text-black">
+
+        <section class="py-10 px-6 relative overflow-hidden min-h-[100px] flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('assets/img/fondos/fondo1.jpg');">
+        </section>
+
+        <section class="py-24 px-6 bg-ostion">
+            <div class="max-w-6xl mx-auto gap-16">
+                <h2 class="text-2xl font-bold mb-6 text-center">AVISO DE PRIVACIDAD</h2>
+                  <p class="mb-4">
+            TI KLAMMER S.A. DE C.V. , MEJOR CONOCIDO COMO KLAMMER, CON DOMICILIO EN CDA. VILLA IÑIGO JONES #409, COLONIA VILLAS DEL RENACIMIENTO, 
+            CIUDAD TORREÓN, MUNICIPIO O DELEGACIÓN TORREÓN, C.P. 27103, EN LA ENTIDAD DE COAHUILA DE ZARAGOZA, PAÍS MÉXCO, Y PORTAL DE 
+            INTERNET <a href="https://klammer.com.mx">WWW.KLAMMER.COM.MX</a>, ES EL RESPONSABLE DEL USO Y PROTECCIÓN DE SUS DATOS PERSONALES, 
+            Y AL RESPECTO LE INFORMAMOS LO SIGUIENTE:
+                 </p>
+                <h2 class="text-2xl font-bold mb-6 text-center">¿PARA QUÉ FINES UTILIZAREMOS SUS DATOS PERSONALES?</h2>
+                  <p class="mb-4">
+            LOS DATOS PERSONALES QUE RECABAMOS DE USTED, LOS UTILIZAREMOS LAS SIGUIENTES FINALIDADES QUE NO SON NECESARIAS PARA EL SERVICIO 
+            SOLICITADO, PERO QUE NOS PERMITEN Y FACILITAN BRINDARLE UNA MEJOR ATENCION:
+            </p>
+            <ul class="bxt-regular">
+            <li>I. PARA CONTACTARLE Y CONTESTAR CUALQUIER SOLICITUD QUE HAYA ENVIADO A TRAVÉS DE LOS SITIOS DE BEXTEC.</li>
+            <li>II. PARA ENVIARLE MATERIAL DE MARKETING SOBRE NUESTROS SERVICIOS Y SOLUCIONES, DE ACUERDO A SUS INTERESES.</li>
+            <Li>III. REALIZAR ENCUESTAS DE SATISFACCIÓN A NUESTROS CLIENTES.</li>
+            <li>IV.. ADMINISTRAR Y CONTESTAR LOS COMENTARIOS O SOLICITUDES REALIZADAS EN NUESTROS BLOGS, DE LOS CUALES USTED PUEDE PARTICIPAR.</li>
+            <li>V. DESARROLLAR CAMPAÑAS DE MARKETING.</li>
+            <li>VI. CON PROPÓSITOS DE RECLUTAMIENTO; Y PARA COMPILAR ESTADÍSTICAS GENERALES.</li>
+            <li>VII. PROSPECCIÓN COMERCIAL.</li>
+            </ul>
+            <br>
+            <p class="mb-4">
+            EN CASO DE QUE NO DESEE QUE SUS DATOS PERSONALES SE UTILICEN PARA ESTOS FINES, ENVÍE UN CORREO ELECTRÓNICO A LA SIGUIENTE DIRECCIÓN: 
+            <a href="mailto:contacto@klammer.com.mx">CONTACTO@KLAMMER.COM.MX</a> INDICANDO SU NEGATIVA LA CUAL NO PODRÁ SER UN MOTIVO PARA QUE 
+            LE NEGUEMOS LOS SERVICIOS Y PRODUCTOS QUE SOLICITA O CONTRATA CON NOSOTROS.
+            </p>
+            <h2 class="text-2xl font-bold mb-6 text-center">¿QUÉ DATOS PERSONALES UTILIZAREMOS PARA ESTOS FINES?</h2>
+                  <p class="mb-4">
+            PARA LLEVAR A CABO LAS GINALIDADES DESCRITAS EN EL PRESENTE AVISO DE PRIVACIDAD, UTILIZAREMOS LOS SIGUIENTES DATOS PERSONALES:
+            </p> 
+            <ul>
+            <li>I. DATOS DE IDENTIFICACIÓN.</li>
+            <li>II. DATOS DE CONTACTO.</li>
+            <li>III. DATOS LABORALES.</li>
+            <li>IV. DATOS ACADÉMICOS.</li>
+            <li>V. DATOS MIGRATORIOS.</li>
+            <li>VI. DATOS PATRIMONIALES Y/O FINANCIEROS.</li>
+            </ul>
+            <br>
+            <h2 class="text-2xl font-bold mb-6 text-center">¿CÓMO PUEDE ACCEDER, RECTIFICAR O CANCELAR SUS DATOS PERSONALES, U OPONERSE A SU USO?</h2>
+                  <p class="mb-4">
+            USTED TIENE DERECHO A CONOCER QUÉ DATOS PERSONALES TENEMOS DE USTED, PARA QUÉ LOS UTILIZAMOS Y LAS CONDICIONES DEL USO QUE LES DAMOS
+             (ACCESO). ASIMISMO, ES SU DERECHO SOLICITAR LA CORRECCIÓN DE SU INFORMACIÓN PERSONAL EN CASO DE QUE ESTÉ DESACTUALIZADA, SEA 
+             INEXACTA O INCOMPLETA (RECTIFICACIÓN); QUE LA ELIMINEMOS DE NUESTROS REGISTROS O BASES DE DATOS CUANDO CONSIDERE QUE LA MISMA NO 
+             ESTÁ SIENDO UTILIZADA ADECUADAMENTE (CANCELACIÓN); ASÍ COMO OPONERSE AL USO DE SUS DATOS PERSONALES PARA FINES ESPECÍFICOS 
+             (OPOSICIÓN). ESTOS DERECHOS SE CONOCEN COMO DERECHOS ARCO. PARA EL EJERCICIO DE CUALQUIERA DE LOS DERECHOS ARCO, USTED DEBERÁ 
+             PRESENTAR LA SOLICITUD RESPECTIVA A TRAVÉS DEL CORREO ELECTRÓNICO <a href="mailto:contacto@klammer.com.mx">CONTACTO@KLAMMER.COM.MX</a> O COMUNICARSE AL 
+             TELÉFONO <b>+52 (871) 259 8460.</b>
                 </p>
-                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
-                    Soluciones a medida para la excelencia operativa
-                </h1>
-                <div class="h-1 w-24 bg-forest-yellow mx-auto mb-6"></div>
-                <p class="text-ostion opacity-80 max-w-2xl mx-auto ">
-                    Optimizamos la estructura administrativa y centralizamos tu inteligencia de datos mediante tecnología de vanguardia, garantizando escalabilidad y mitigación de riesgos críticos.
+                <p class="mb-4">
+                    CON RELACIÓN AL PROCEDIMIENTO Y REQUISITOS PARA EL EJERCICIO DE SUS DERECHOS ARCO, LE INFORMAMOS LO SIGUIENTE:
                 </p>
-            </div>
+                <p class="mb-4">
+                A&#41; ¿A TRAVÉS DE QUÉ MEDIOS PUEDEN ACREDITAR SU IDENTIDAD EL TITULAR Y, EN SU CASO, SU REPRESENTANTE, ASÍ COMO LA PERSONALIDAD ESTE ÚLTIMO?
+                </p>
+                <p class="mb-4">
+                    A TRAVÉS DEL CORREO ELECTRÓNICO <a href="mailto:contacto@klammer.com.mx">CONTACTO@KLAMMER.COM.MX</a> O COMUNICARSE AL TELÉFONO <b>+52 (871) 799 4789.</b>
+                </p>
+                <p class="mb-4">
+                    B&#41; ¿QUÉ INFORMACIÓN Y/O DOCUMENTACIÓN DEBERÁ CONTENER LA SOLICITUD?
+                    <ul>
+                        <li>- NOMBRE COMPLETO</li>
+                        <li>- TELEFONO DE CONTACTO</li>
+                        <li>- CORREO ELECTRÓNICO</li>
+                        <li>- SOLICITUD DE ACCESO, RECTIFICACION, CANCELACION U OPOSICION DE USO DE DATOS PERSONALES.</li>
+                    </ul>
+                </p>
+                <br>
+                <p class="mb-4">
+                C&#41; ¿EN CUÁNTOS DÍAS LE DAREMOS RESPUESTA A SU SOLICITUD?
+                </p>
+                <p class="mb-4">
+                    30 DÍAS HABILES
+                </p>
+                <p class="mb-4">
+                D&#41; ¿POR QUÉ MEDIO LE COMUNICAREMOS LA RESPUESTA A SU SOLICITUD?
+                </p>
+                <p class="mb-4">
+                    A TRAVÉS DEL CORREO ELECTRÓNICO PROPORCIONADO EN LA SOLICITUD
+                </p>
+                <p class="mb-4">
+                E&#41; ¿EN QUÉ MEDIOS SE PUEDEN REPRODUCIR LOS DATOS PERSONALES QUE, EN SU CASO, SOLICITE?
+                </p>
+                <p class="mb-4">
+                    EN LA PAGINA <a href="https://klammer.com.mx">WWW.KLAMMER.COM.MX</a>
+                </p>
+                <p class="mb-4">
+                    LOS DATOS DE CONTACTO DE LA PERSONA O DEPARTAMENTO DE DATOS PERSONALES, QUE ESTÁ A CARGO DE DAR TRÁMITE A LAS SOLICITUDES 
+                    DE DERECHOS ARCO, SON LOS SIGUIENTES:
+                </p>
+                 <p class="mb-4">
+                A&#41; NOMBRE DE LA PERSONA O DEPARTAMENTO DE DATOS PERSONALES:
+                </p>
+                <p class="mb-4">
+                    DEPARTAMENTO JURÍDICO TI KLAMMER S.A. DE C.V.
+                </p>
+                 <p class="mb-4">
+                B&#41; DOMICILIO:
+                </p>
+                <p class="mb-4">
+                    30 DÍAS HABILES
+                </p>
+                 <p class="mb-4">
+                C&#41; CORREO ELECTRÓNICO:
+                </p>
+                <p class="mb-4">
+                    <a href="mailto:contacto@klammer.com.mx">CONTACTO@KLAMMER.COM.MX</a>
+                </p>
+                 <p class="mb-4">
+                D&#41; NÚMERO TELEFÓNICO
+                </p>
+                <p class="mb-4">
+                    +52 871 259 8460
+                </p>
+                <h2 class="text-2xl font-bold mb-6 text-center">EL USO DE TECNOLOGÍAS DE RASTREO EN NUESTRO PORTAL DE INTERNET</h2>
+                  <p class="mb-4">
+            LE INFORMAMOS QUE EN NUESTRA PÁGINA DE INTERNET UTILIZAMOS COOKIES, WEB BEACONS U OTRAS TECNOLOGÍAS, A TRAVÉS DE LAS CUALES ES 
+            POSIBLE MONITOREAR SU COMPORTAMIENTO COMO USUARIO DE INTERNET, ASÍ COMO BRINDARLE UN MEJOR SERVICIO Y EXPERIENCIA AL NAVEGAR EN 
+            NUESTRA PÁGINA. LOS DATOS PERSONALES QUE RECABAMOS A TRAVÉS DE ESTAS TECNOLOGÍAS, LOS UTILIZAREMOS PARA LOS SIGUIENTES FINES:
+                </p>
+                <p class="mb-4">
+                    - DESARROLLAR CAMPAÑAS DE MARKETING
+                </p>
+                <p class="mb-4">
+                    LOS DATOS PERSONALES QUE OBTENEMOS DE ESTAS TECNOLOGÍAS DE RASTREO SON LOS SIGUIENTES:
+                    <ul>
+                        <li>I. IDENTIFICADORES, NOMBRE DE USUARIO Y CONTRASEÑAS DE UNA SESIÓN</li>
+                        <li>II. IDIOMA PREFERIDO POR EL USUARIO</li>
+                        <li>III. REGIÓN EN LA QUE SE ENCUENTRA EL USUARIO</li>
+                        <li>IV. TIPO DE NAVEGADOR DEL USUARIO</li>
+                        <li>V. TIPO DE SISTEMA OPERATIVO DEL USUARIO</li>
+                        <li>VI. FECHA Y HORA DEL INICIO Y FINAL DE UNA SESIÓN DE UN USUARIO</li>
+                        <li>VII. PÁGINAS WEB VISITADAS POR UN USUARIO</li>
+                        <li>VIII. BÚSQUEDAS REALIZADAS POR UN USUARIO</li>
+                        <li>IX. PUBLICIDAD REVISADA POR UN USUARIO</li>
+                        <li>X. LISTAS Y HÁBITOS DE CONSUMO EN PÁGINAS DE COMPRAS</li>
+                    </ul>
+                </p>
+                <br>
+                <h2 class="text-2xl font-bold mb-6 text-center">¿CÓMO PUEDE CONOCER LOS CAMBIOS EN ESTE AVISO DE PRIVACIDAD?</h2>
+                  <p class="mb-4">
+                EL PRESENTE AVISO DE PRIVACIDAD PUEDE SUFRIR MODIFICACIONES, CAMBIOS O ACTUALIZACIONES DERIVADAS DE NUEVOS REQUERIMIENTOS 
+                LEGALES; DE NUESTRAS PROPIAS NECESIDADES POR LOS PRODUCTOS O SERVICIOS QUE OFRECEMOS; DE NUESTRAS PRÁCTICAS DE PRIVACIDAD; 
+                DE CAMBIOS EN NUESTRO MODELO DE NEGOCIO, O POR OTRAS CAUSAS.
+                </p>
+                <p class="mb-4">
+                NOS COMPROMETEMOS A MANTENERLO INFORMADO SOBRE LOS CAMBIOS QUE PUEDA SUFRIR EL PRESENTE AVISO DE PRIVACIDAD, A TRAVÉS DE LA 
+                PAGINA WEB <a href="https://klammer.com.mx">WWW.KLAMMER.COM.MX</a>    
+                </p>
+                <p class="mb-4">
+                 EL PROCEDIMIENTO A TRAVÉS DEL CUAL SE LLEVARÁN A CABO LAS NOTIFICACIONES SOBRE CAMBIOS O ACTUALIZACIONES AL PRESENTE 
+                 AVISO DE PRIVACIDAD SE NOTIFICARA POR MEDIO DE LA PAGINA DE INTERNET <a href="https://klammer.com.mx">WWW.KLAMMER.COM.MX</a>  
+                </p>
+
+        </div>
         </section>
-
-        <section class="py-20 bg-ostion">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="space-y-16">
-    
-                    <!-- 01. BUSINESS INTELLIGENCE -->
-                    <div class="bg-white border-t-4 border-deep-blue shadow-md hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-3 overflow-hidden">
-                        
-                        <!-- Columna Izquierda -->
-                        <div class="p-8 lg:col-span-2 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center space-x-4 mb-4">
-                                    <span class=" text-4xl font-bold text-forest-yellow">01</span>
-                                    <h3 class="text-2xl font-bold text-deep-blue">Business Intelligence & Analytics</h3>
-                                </div>
-                                <p class="text-energy-blue text-base leading-relaxed mb-4">
-                                    Toma decisiones de manera rápida e inteligente, descubre y visualiza los datos de tu empresa con facilidad en una sola plataforma.
-                                </p>
-                                <p class="text-gray-500 text-sm mb-8">
-                                    Con nuestra consultoría y plataformas de tecnología líderes en el mercado, aprovecha al máximo toda la información que posee tu empresa con el fin de lograr ventajas competitivas. No es lo mismo tener datos a tener información que se transforma en conocimiento. 
-                                </p>
-                            </div>
-                            <div>
-                                <a href="BI.html" class="inline-block bg-forest-yellow text-deep-blue font-bold px-8 py-3 hover:bg-deep-blue hover:text-white transition-colors duration-300 shadow-sm">
-                                    VER MÁS
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Columna Derecha -->
-                        <div class="h-64 lg:h-auto w-full relative bg-gray-200">
-                            <img src="assets/img/notas/BI.jpg" alt="Business Intelligence" class="absolute inset-0 w-full h-full object-cover">
-                        </div>
-                    </div>
-                    
-                    <!-- 02. RPA -->
-                    <div class="bg-white border-t-4 border-energy-blue shadow-md hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-3 overflow-hidden">
-                        
-                        <div class="p-8 lg:col-span-2 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center space-x-4 mb-4">
-                                    <span class=" text-4xl font-bold text-forest-yellow">02</span>
-                                    <h3 class="text-2xl font-bold text-deep-blue">Robotic Process Automation (RPA) & Data Engineering</h3>
-                                </div>
-                                <p class="text-energy-blue text-base leading-relaxed mb-4">
-                                    Optimiza los costos de trabajo e incrementa la capacidad, la velocidad, precisión y disponibilidad mejorando el cumplimiento y la auditabilidad.
-                                </p>
-                                <p class="text-gray-500 text-sm mb-8">
-                                    Un robot aprende, ejecuta sin errores y automatiza cualquier proceso. ¿Estás listo para ir más allá de la eficiencia? Automatiza los procesos de tu negocio replicando las acciones de un ser humano por medio de un robot.
-                                </p>
-                            </div>
-                            <div>
-                                <a href="RPA.html" class="inline-block bg-forest-yellow text-deep-blue font-bold px-8 py-3 hover:bg-deep-blue hover:text-white transition-colors duration-300 shadow-sm">
-                                    VER MÁS
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="h-64 lg:h-auto w-full relative bg-gray-200">
-                            <img src="assets/img/notas/RPA.jpg" alt="RPA y Data Engineering" class="absolute inset-0 w-full h-full object-cover">
-                        </div>
-                    </div>
-                    
-                    <!-- 03. DESARROLLO -->
-                    <div class="bg-white border-t-4 border-deep-blue shadow-md hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-3 overflow-hidden text-white">
-                        
-                        <div class="p-8 lg:col-span-2 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center space-x-4 mb-4">
-                                    <span class="text-4xl font-bold text-forest-yellow">03</span>
-                                    <h3 class="text-2xl font-bold text-deep-blue">Soporte, Auditoría y Consultoría Estratégica</h3>
-                                </div>
-                                <p class="text-energy-blue text-base leading-relaxed mb-4">
-                                    Cubrimos todas tus necesidades de software. Creamos herramientas especiales para que tu negocio sobresalga en el mercado.
-                                </p>
-                                <p class="text-gray-500 text-sm mb-8">
-                                    Construimos aplicaciones que mejoran tu operación diaria y exponencian a tu negocio. Nos encargamos de todo el ciclo del proyecto.
-                                </p>
-                            </div>
-                            <div>
-                                <a href="soporte.html" class="inline-block bg-forest-yellow text-deep-blue font-bold px-8 py-3 hover:text-white hover:bg-deep-blue transition-colors duration-300 shadow-sm">
-                                    VER MÁS
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="h-64 lg:h-auto w-full relative bg-gray-800">
-                            <img src="assets/img/notas/DEV.jpg" alt="Soporte y Consultoría" class="absolute inset-0 w-full h-full object-cover opacity-90">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        
-        <section class="bg-white py-16 text-center border-t border-gray-200">
-            <a href="contacto.html" class="inline-block bg-forest-yellow hover:bg-yellow-400 text-deep-blue font-bold py-3 px-8 transition shadow-lg shadow-forest-yellow/30">
-                ¡Estoy interesado!
-            </a>
-        </section>
-
     </main>
 
     <!-- FOOTER -->
@@ -309,8 +364,8 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script>
+        <script>
+
         const menuBtn = document.getElementById('menu-btn');
         const closeBtn = document.getElementById('close-btn');
         const menu = document.getElementById('menu');
@@ -362,7 +417,7 @@
             setTimeout(() => preloader.style.display = 'none', 500);
         });
 
-        
-    </script>
+        </script>
+
 </body>
 </html>
