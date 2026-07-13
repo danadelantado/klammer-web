@@ -155,18 +155,16 @@
 
             <!-- Columna Derecha: Formulario -->
             <div class="bg-ostion p-8 rounded shadow-lg border border-gray-200">
-                <form class="space-y-4">
-                    <input type="text" placeholder="Nombre *" class="w-full p-3 border border-gray-300 rounded focus:border-forest-yellow outline-none">
-                    <input type="text" placeholder="Apellido *" class="w-full p-3 border border-gray-300 rounded focus:border-forest-yellow outline-none">
-                    <input type="text" placeholder="Cargo *" class="w-full p-3 border border-gray-300 rounded focus:border-forest-yellow outline-none">
-                    <input type="text" placeholder="Nombre de la empresa *" class="w-full p-3 border border-gray-300 rounded focus:border-forest-yellow outline-none">
-                    <select class="w-full p-3 border border-gray-300 rounded text-gray-500">
-                        <option>País *</option>
-                        <option>México</option>
-                    </select>
-                    <textarea placeholder="Comentarios adicionales" class="w-full p-3 border border-gray-300 rounded h-24"></textarea>
+                <form id="google-sheet-form" action="https://formspree.io/f/xqevryry" method="POST" class="space-y-4">
+                    <input type="text" name="nombre" placeholder="Nombre *" class="w-full p-3 border border-gray-300 rounded focus:border-forest-yellow outline-none">
+                    <input type="text" name="apellido" placeholder="Apellido *" class="w-full p-3 border border-gray-300 rounded focus:border-forest-yellow outline-none">
+                    <input type="text" name="email" placeholder="Correo *" class="w-full p-3 border border-gray-300 rounded focus:border-forest-yellow outline-none">
+                    <input type="text" name="cargo" placeholder="Cargo *" class="w-full p-3 border border-gray-300 rounded focus:border-forest-yellow outline-none">
+                    <input type="text" name="país" placeholder="País *" class="w-full p-3 border border-gray-300 rounded focus:border-forest-yellow outline-none">
+                    <input type="text" name="empresa" placeholder="Nombre de la empresa *" class="w-full p-3 border border-gray-300 rounded focus:border-forest-yellow outline-none">
+                    <textarea name="comentarios" placeholder="Comentarios adicionales" class="w-full p-3 border border-gray-300 rounded h-24"></textarea>
                     <label class="flex items-center space-x-2 text-sm text-energy-blue">
-                        <input type="checkbox" class="accent-forest-yellow">
+                        <input type="checkbox" name="llamada" class="accent-forest-yellow">
                         <span>Solicitar una llamada</span>
                     </label>
                     <button class="w-full bg-forest-yellow text-white font-bold py-3 hover:bg-energy-blue transition">ENVIAR</button>
@@ -300,5 +298,30 @@
         });
         
     </script>
+
+    <script>
+    const form = document.getElementById('google-sheet-form');
+    const successDiv = document.getElementById('form-success');
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        
+        fetch(event.target.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                form.classList.add('hidden'); // Oculta el formulario
+                successDiv.classList.remove('hidden'); // Muestra el mensaje de éxito
+            } else {
+                alert("Hubo un error al enviar el mensaje.");
+            }
+        });
+    }
+
+    form.addEventListener('submit', handleSubmit);
+</script>
 </body>
 </html>
