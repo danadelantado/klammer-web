@@ -89,8 +89,19 @@
                             <a href="DDS.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Desarrollo de Software</a>
                         </div>
                     </div>
+                
+                    <div class="relative group">
+                        <a class="text-white font-bold hover:text-forest-yellow transition text-base flex items-center gap-1">
+                            Servicios 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <!-- Menú desplegable -->
+                        <div class="absolute top-full left-0 w-64 bg-white shadow-xl border-t-2 border-forest-yellow opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-lg p-2">
+                            <a href="cursos.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-[#cad1db] transition rounded">Cursos</a>
+                            <a href="consultoria.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-[#cad1db] transition rounded">Consultoría</a>
+                        </div>
+                    </div>
 
-                    <a href="educacion.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Educación</a>
                     <a href="casosexito.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Casos de Éxito</a>
                     <a href="acerca-de.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Acerca de</a>
                     <a href="contacto.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Contacto</a>
@@ -121,7 +132,16 @@
                 <a href="DDS.html" class="text-gray-300 text-sm hover:text-forest-yellow">Desarrollo de Software</a>
             </div>
         </div>
-            <a href="educacion.html" class="text-white text-lg font-bold hover:text-forest-yellow">Educación</a>
+
+        <div class="flex items-center justify-between">
+                <a class="text-white text-lg font-bold hover:text-forest-yellow">Servicios</a>
+                <button id="toggle-submenu2" class="text-forest-yellow font-bold text-2xl px-2">+</button>
+            </div>
+            <div id="mobile-submenu2" class="hidden flex-col pl-4 mt-4 space-y-3 border-l-2 border-forest-yellow/30">
+                <a href="cursos.html" class="text-gray-300 text-sm hover:text-forest-yellow">Cursos</a>
+                <a href="consultoria.html" class="text-gray-300 text-sm hover:text-forest-yellow">Consultoría</a>
+            </div>
+
             <a href="casosexito.html" class="text-white text-lg font-bold hover:text-forest-yellow">Casos de Éxito</a>
             <a href="acerca-de.html" class="text-white text-lg font-bold hover:text-forest-yellow">Acerca de</a>
             <a href="contacto.html" class="text-white text-lg font-bold hover:text-forest-yellow">Contacto</a>
@@ -455,7 +475,8 @@
                         <h4 class="font-bold text-xs text-ostion mb-4 uppercase tracking-widest border-b border-forest-yellow pb-2">Sobre Nosotros</h4>
                         <ul class="space-y-3 text-sm text-gray-400">
                             <li><a href="acerca-de.html" class="hover:text-forest-yellow transition">Acerca de</a></li>
-                            <li><a href="educacion.html" class="hover:text-forest-yellow transition">Educación</a></li>
+                            <li><a href="cursos.html" class="hover:text-forest-yellow transition">Cursos</a></li>
+                            <li><a href="consultoria.html" class="hover:text-forest-yellow transition">Consultoría</a></li>
                             <li><a href="casosexito.html" class="hover:text-forest-yellow transition">Casos de éxito</a></li>
                             <li><a href="soporte.html" class="hover:text-forest-yellow transition">Soporte</a></li>
                         </ul>
@@ -544,6 +565,15 @@
             mobileSubmenu.classList.toggle('flex');
             toggleSubmenu.innerText = mobileSubmenu.classList.contains('hidden') ? '+' : '-';
         });
+
+        const toggleSubmenu2 = document.getElementById('toggle-submenu2');
+        const mobileSubmenu2 = document.getElementById('mobile-submenu2');
+
+        toggleSubmenu2.addEventListener('click', () => {
+            mobileSubmenu2.classList.toggle('hidden');
+            mobileSubmenu2.classList.toggle('flex');
+            toggleSubmenu2.innerText = mobileSubmenu2.classList.contains('hidden') ? '+' : '-';
+        });        
 
         // Preloader
         window.addEventListener('load', () => {

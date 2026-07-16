@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoría Especializada</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'energy-blue': '#1F4589',
+                        'deep-blue': '#162F73',
+                        'forest-yellow': '#F6C500',
+                        'ostion': '#F3F1EE',
+                        'dark-blue': '#111827',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        mono: ['"Courier New"', 'Courier', 'monospace'] 
+                    },
+                    keyframes: {
+                        deslizar: {
+                            '0%, 100%': { transform: 'translateX(-100%)' },
+                            '50%': { transform: 'translateX(200%)' } 
+                        }
+                    },
+                    animation: {
+                        deslizar: 'deslizar 2s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-ostion text-deep-blue antialiased flex flex-col min-h-screen">
+
+    <div id="preloader" class="fixed inset-0 z-[100] bg-deep-blue flex flex-col items-center justify-center transition-opacity duration-500 font-mono">
+        <div class="animate-pulse mb-6 flex items-center justify-center space-x-2">
+            <span class="text-7xl font-bold text-forest-yellow ">{</span>
+            <div class="w-4 h-4 rounded-full bg-ostion animate-ping"></div>
+            <span class="text-7xl font-bold text-forest-yellow ">}</span>
+        </div>
+        <div class="w-48 h-1 bg-energy-blue rounded-full overflow-hidden relative">
+            <div class="absolute top-0 left-0 h-full bg-forest-yellow w-1/2 rounded-full animate-deslizar"></div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-[#111827] transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html">
+                        <img src="assets/icons/logo/logoH_BAM.png" alt="Logo Klammer" class="h-12 w-auto object-contain">
+                    </a>
+                </div>
+                
+                <nav class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Inicio</a>
+                    
+                    <!-- SUBMENÚ SOLUCIONES -->
+                    <div class="relative group">
+                        <a href="soluciones.html" class="text-white font-bold hover:text-forest-yellow transition text-base flex items-center gap-1">
+                            Soluciones 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <!-- Menú desplegable -->
+                        <div class="absolute top-full left-0 w-64 bg-white shadow-xl border-t-2 border-forest-yellow opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-lg p-2">
+                            <a href="BI.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Business Intelligence</a>
+                            <a href="RPA.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Robotic Process Automation</a>
+                            <a href="DDS.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-ostion transition rounded">Desarrollo de Software</a>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <a class="text-forest-yellow font-bold hover:text-forest-yellow transition text-base flex items-center gap-1">
+                            Servicios 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <!-- Menú desplegable -->
+                        <div class="absolute top-full left-0 w-64 bg-white shadow-xl border-t-2 border-forest-yellow opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-lg p-2">
+                            <a href="cursos.html" class="block px-4 py-3 text-deep-blue font-bold hover:bg-[#cad1db] transition rounded">Cursos</a>
+                            <a href="consultoria.html" class="block px-4 py-3 text-forest-yellow font-bold hover:bg-[#cad1db] transition rounded">Consultoría</a>
+                        </div>
+                    </div>
+
+                    <a href="casosexito.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Casos de Éxito</a>
+                    <a href="acerca-de.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Acerca de</a>
+                    <a href="contacto.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Contacto</a>
+                    <a href="soporte.html" class="text-white font-bold hover:text-forest-yellow transition text-base">Soporte</a>
+                </nav>
+
+                <button id="menu-btn" class="lg:hidden text-white p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU DESPLEGABLE MÓVIL -->
+    <div id="menu" class="fixed top-0 right-0 h-full w-72 bg-dark-blue z-[60] p-8 shadow-2xl transition-transform duration-300 transform translate-x-full hidden">
+        <button id="close-btn" class="text-white mb-8 block ml-auto">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="flex flex-col space-y-6">
+            <a href="index.html" class="text-white text-lg font-bold hover:text-forest-yellow">Inicio</a>
+            <div>
+            <div class="flex items-center justify-between">
+                <a href="soluciones.html" class="text-white text-lg font-bold hover:text-forest-yellow">Soluciones</a>
+                <button id="toggle-submenu" class="text-forest-yellow font-bold text-2xl px-2">+</button>
+            </div>
+            <!-- Submenú oculto por defecto -->
+            <div id="mobile-submenu" class="hidden flex-col pl-4 mt-4 space-y-3 border-l-2 border-forest-yellow/30">
+                <a href="BI.html" class="text-gray-300 text-sm hover:text-forest-yellow">Business Intelligence</a>
+                <a href="RPA.html" class="text-gray-300 text-sm hover:text-forest-yellow">RPA & Data Engineering</a>
+                <a href="DDS.html" class="text-gray-300 text-sm hover:text-forest-yellow">Desarrollo de Software</a>
+            </div>
+        </div>
+
+            <div class="flex items-center justify-between">
+                <a class="text-forest-yellow text-lg font-bold hover:text-forest-yellow">Servicios</a>
+                <button id="toggle-submenu2" class="text-forest-yellow font-bold text-2xl px-2">+</button>
+            </div>
+            <div id="mobile-submenu2" class="hidden flex-col pl-4 mt-4 space-y-3 border-l-2 border-forest-yellow/30">
+                <a href="cursos.html" class="text-gray-300 text-sm hover:text-forest-yellow">Cursos</a>
+                <a href="consultoria.html" class="text-forest-yellow text-sm hover:text-forest-yellow">Consultoría</a>
+            </div>
+
+            <a href="casosexito.html" class="text-white text-lg font-bold hover:text-forest-yellow">Casos de Éxito</a>
+            <a href="acerca-de.html" class="text-white text-lg font-bold hover:text-forest-yellow">Acerca de</a>
+            <a href="contacto.html" class="text-white text-lg font-bold hover:text-forest-yellow">Contacto</a>
+            <a href="soporte.html" class="text-white text-lg font-bold hover:text-forest-yellow">Soporte</a>
+        </div>
+    </div>
+    <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[55]"></div>
+
+    <main class="flex-grow pt-16">
+        
+        <!-- HERO SECTON ORIENTADO A NEGOCIOS -->
+        <section class="py-24 px-6 relative overflow-hidden flex items-center justify-center text-center bg-center bg-cover" style="background-image: url('assets/img/fondos/fondoE.jpg');">
+            <div class="absolute inset-0 bg-deep-blue/80"></div> <!-- Overlay oscuro para profesionalismo -->
+            <div class="max-w-4xl mx-auto relative z-10">
+                <p class=" text-forest-yellow text-sm md:text-base mb-4 font-bold uppercase tracking-widest">
+                    Firma de Consultoría en Inteligencia de Negocios
+                </p>
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
+                    Soluciones de Datos a la Medida de tu Operación
+                </h1>
+                <div class="h-1 w-24 bg-forest-yellow mx-auto mb-6"></div>
+                <p class="text-ostion opacity-90 max-w-2xl mx-auto text-sm md:text-base mb-10">
+                    Auditamos, diseñamos e implementamos ecosistemas analíticos integrales. Nuestro equipo de ingenieros transforma procesos manuales críticos en arquitecturas robustas y automatizadas.
+                </p>
+                
+                <a href="#inscripcion-form" class="inline-block bg-forest-yellow hover:bg-yellow-400 text-deep-blue font-bold py-4 px-10 transition shadow-lg shadow-forest-yellow/20 font-montserrat uppercase tracking-wider text-sm border-b-4 border-amber-600 active:border-b-0">
+                    Solicitar Diagnóstico ↓
+                </a>
+            </div>
+        </section>
+
+        <!-- PORTAFOLIO DE SERVICIOS (FORMATO GRID PROFESIONAL, NO CARRUSEL) -->
+        <section class="py-24 px-6 bg-ostion">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-xs font-bold text-energy-blue uppercase tracking-widest">Core Business</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-deep-blue mt-2">Áreas de Especialidad Analítica</h2>
+                    <p class="text-energy-blue/80 text-sm mt-2">Desarrollamos soluciones gobernadas sobre las plataformas líderes del mercado.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Tarjeta 1 - Excel / VBA -->
+                    <div class="bg-white border-t-4 border-forest-yellow p-8 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                        <div class="flex-grow">
+                            <div class="mb-6">
+                                <span class="text-xs font-bold text-energy-blue uppercase tracking-wider">Business Productivity</span>
+                                <h3 class="text-2xl font-bold text-deep-blue mt-1">Automatización en Excel</h3>
+                            </div>
+                            <p class="mb-6 text-energy-blue text-sm leading-relaxed">
+                                Intervenimos modelos operativos complejos para erradicar el trabajo manual. Extraemos, transformamos y unificamos la data directamente en sus hojas de cálculo para cierres financieros instantáneos.
+                            </p>
+                            <ul class="space-y-3 text-energy-blue text-sm mb-6">
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-forest-yellow mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Ingeniería y flujos con <strong>Power Query</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-forest-yellow mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Desarrollo de scripts y macros en <strong>VBA</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-forest-yellow mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Reestructuración de Dashboards Gerenciales.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded text-xs text-deep-blue mt-4 border-l-2 border-forest-yellow">
+                            <strong>Impacto esperado:</strong> Reducción de hasta un 80% en tiempos de consolidación de reportes semanales.
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2 - Qlik -->
+                    <div class="bg-white border-t-4 border-energy-blue p-8 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                        <div class="flex-grow">
+                            <div class="mb-6">
+                                <span class="text-xs font-bold text-energy-blue uppercase tracking-wider">Enterprise Analytics</span>
+                                <h3 class="text-2xl font-bold text-deep-blue mt-1">Arquitectura Qlik</h3>
+                            </div>
+                            <p class="mb-6 text-energy-blue text-sm leading-relaxed">
+                                Diseñamos ecosistemas de datos escalables utilizando Qlik Sense. Gestionamos la ingesta, el modelado asociativo y la creación de tableros de alto impacto para despliegues on-premise o Cloud.
+                            </p>
+                            <ul class="space-y-3 text-energy-blue text-sm mb-6">
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-energy-blue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Modelado de datos y optimización de <strong>QVDs</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-energy-blue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Diseño UX/UI de Dashboards corporativos.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-energy-blue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Gobernanza, Section Access y Seguridad.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded text-xs text-deep-blue mt-4 border-l-2 border-energy-blue">
+                            <strong>Impacto esperado:</strong> Visibilidad integral del negocio con cruce de información de múltiples ERPs.
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3 - Power BI -->
+                    <div class="bg-white border-t-4 border-gray-800 p-8 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                        <div class="flex-grow">
+                            <div class="mb-6">
+                                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Microsoft Ecosystem</span>
+                                <h3 class="text-2xl font-bold text-deep-blue mt-1">Soluciones Power BI</h3>
+                            </div>
+                            <p class="mb-6 text-energy-blue text-sm leading-relaxed">
+                                Centralizamos tu operación bajo la plataforma líder de inteligencia de negocios. Construimos modelos semánticos rigurosos que actúan como "la única versión de la verdad" para tu empresa.
+                            </p>
+                            <ul class="space-y-3 text-energy-blue text-sm mb-6">
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-gray-800 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Desarrollo de métricas y cálculos con <strong>DAX</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-gray-800 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Integración con bases SQL, APIs y archivos locales.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-gray-800 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Administración y despliegue en Power BI Service.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded text-xs text-deep-blue mt-4 border-l-2 border-gray-800">
+                            <strong>Impacto esperado:</strong> Tableros directivos interactivos actualizados en tiempo real y desde cualquier dispositivo.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- MODELOS DE CONTRATACIÓN (B2B) -->
+        <section class="py-16 bg-deep-blue text-white border-y-4 border-forest-yellow">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold">Modelos de Involucramiento</h2>
+                    <p class="text-sm text-ostion/80 mt-2">Esquemas de trabajo flexibles para adaptarnos a las necesidades de tu corporativo.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="border border-energy-blue p-6 rounded hover:bg-white/5 transition duration-300">
+                        <div class="w-12 h-12 bg-forest-yellow text-deep-blue rounded-full flex items-center justify-center font-bold text-xl mb-4">01</div>
+                        <h3 class="font-bold text-lg mb-2 text-forest-yellow">Proyectos Llave en Mano</h3>
+                        <p class="text-sm text-ostion/80 leading-relaxed">Asumimos el desarrollo completo. Desde el levantamiento de requerimientos hasta el despliegue final en producción. Costos, entregables y tiempos definidos por contrato.</p>
+                    </div>
+                    <div class="border border-energy-blue p-6 rounded hover:bg-white/5 transition duration-300">
+                        <div class="w-12 h-12 bg-forest-yellow text-deep-blue rounded-full flex items-center justify-center font-bold text-xl mb-4">02</div>
+                        <h3 class="font-bold text-lg mb-2 text-forest-yellow">Staff Augmentation</h3>
+                        <p class="text-sm text-ostion/80 leading-relaxed">Asignamos consultores especializados (Senior/Semi-Senior) directamente a tu equipo de TI para acelerar el roadmap de tus proyectos internos por tiempo determinado.</p>
+                    </div>
+                    <div class="border border-energy-blue p-6 rounded hover:bg-white/5 transition duration-300">
+                        <div class="w-12 h-12 bg-forest-yellow text-deep-blue rounded-full flex items-center justify-center font-bold text-xl mb-4">03</div>
+                        <h3 class="font-bold text-lg mb-2 text-forest-yellow">Pólizas de Soporte B2B</h3>
+                        <p class="text-sm text-ostion/80 leading-relaxed">Bolsas de horas mensuales para dar mantenimiento a tableros existentes, resolver incidencias, optimizar cargas de datos o desarrollar pequeños requerimientos continuos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- METODOLOGÍA (ENFOQUE SOFTWARE/PROYECTOS) -->
+        <section class="py-20 bg-white border-b border-gray-200">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="text-xs font-bold  text-energy-blue uppercase tracking-widest">Pipeline de Ejecución</span>
+                    <h2 class="text-3xl font-bold text-deep-blue mt-1">Metodología de Implementación</h2>
+                    <p class="text-sm text-energy-blue max-w-2xl mx-auto mt-2">Aseguramos el éxito tecnológico mitigando riesgos desde el primer día.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 lg:gap-8 relative">
+                    <div class="p-6 border border-gray-100 bg-gray-50 rounded hover:shadow-lg transition duration-300">
+                        <div class="text-energy-blue font-mono text-sm mb-2 opacity-50">/ 01</div>
+                        <h4 class="font-bold text-deep-blue mb-2 text-lg">Discovery</h4>
+                        <p class="text-xs text-energy-blue leading-relaxed">Mapeamos los orígenes de datos, auditamos la calidad de la información y documentamos las reglas de negocio y los KPIs críticos a responder.</p>
+                    </div>
+
+                    <div class="p-6 border border-gray-100 bg-gray-50 rounded hover:shadow-lg transition duration-300">
+                        <div class="text-energy-blue font-mono text-sm mb-2 opacity-50">/ 02</div>
+                        <h4 class="font-bold text-deep-blue mb-2 text-lg">Arquitectura</h4>
+                        <p class="text-xs text-energy-blue leading-relaxed">Diseñamos el flujo ETL, el modelo de datos óptimo (estrella/copo de nieve) y los mockups visuales para asegurar la escalabilidad del sistema.</p>
+                    </div>
+
+                    <div class="p-6 border border-gray-100 bg-gray-50 rounded hover:shadow-lg transition duration-300">
+                        <div class="text-energy-blue font-mono text-sm mb-2 opacity-50">/ 03</div>
+                        <h4 class="font-bold text-deep-blue mb-2 text-lg">Construcción Ágil</h4>
+                        <p class="text-xs text-energy-blue leading-relaxed">Desarrollamos bajo sprints con entregas iterativas, permitiendo revisión y ajustes constantes para alinear el producto con los directivos.</p>
+                    </div>
+
+                    <div class="p-6 border border-gray-100 bg-gray-50 rounded hover:shadow-lg transition duration-300">
+                        <div class="text-energy-blue font-mono text-sm mb-2 opacity-50">/ 04</div>
+                        <h4 class="font-bold text-deep-blue mb-2 text-lg">Go-Live & Handover</h4>
+                        <p class="text-xs text-energy-blue leading-relaxed">Paso a entorno de producción, pruebas de estrés, entrega de documentación técnica y transferencia de administración a su equipo interno.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO B2B DE CONSULTORÍA -->
+        <section id="inscripcion-form" class="bg-ostion py-20 border-t-4 border-energy-blue text-deep-blue relative">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-bold text-deep-blue uppercase tracking-widest">Contacto Directo</span>
+                    <h2 class="text-3xl font-bold text-deep-blue mt-2">Hablemos de tu Proyecto</h2>
+                    <p class="text-deep-blue/70 text-sm mt-3 max-w-2xl mx-auto">
+                        Agenda una sesión de diagnóstico inicial sin costo. Nuestro equipo técnico evaluará tu ecosistema actual y te propondremos la ruta de arquitectura más eficiente.
+                    </p>
+                </div>
+
+                <div id="form-success" class="hidden bg-white p-8 border-l-8 border-forest-yellow text-deep-blue mb-6 shadow-md text-center">
+                    <h3 class="text-xl font-bold mb-2">¡Solicitud Recibida Correctamente!</h3>
+                    <p class="text-sm text-energy-blue">Un consultor técnico de Klammer se pondrá en contacto contigo en las próximas 24 hrs.</p>
+                </div>
+
+                <form id="google-sheet-form" action="https://formspree.io/f/xkodjwzb" method="POST" class="bg-white p-8 md:p-10 shadow-2xl text-deep-blue border-b-8 border-forest-yellow">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-energy-blue mb-2">Nombre / Puesto *</label>
+                            <input type="text" name="nombre" required class="w-full bg-ostion p-3 border border-transparent focus:border-energy-blue outline-none text-sm transition" placeholder="Ej. Carlos Ruiz - Dir. Operaciones">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-energy-blue mb-2">Empresa *</label>
+                            <input type="text" name="empresa" required class="w-full bg-ostion p-3 border border-transparent focus:border-energy-blue outline-none text-sm transition" placeholder="Ej. Corporativo Industrial S.A.">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-energy-blue mb-2">Correo Corporativo *</label>
+                            <input type="email" name="email" required class="w-full bg-ostion p-3 border border-transparent focus:border-energy-blue outline-none text-sm transition" placeholder="carlos.ruiz@empresa.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-energy-blue mb-2">Tipo de Necesidad *</label>
+                            <select name="tipo_proyecto" required class="w-full bg-ostion p-3 border border-transparent focus:border-energy-blue outline-none text-sm transition">
+                                <option value="" disabled selected>Selecciona el tipo de proyecto</option>
+                                <option value="Automatizacion Excel">Automatización y Macros (Excel)</option>
+                                <option value="Desarrollo PowerBI">Desarrollo de Tableros (Power BI)</option>
+                                <option value="Arquitectura Qlik">Arquitectura y Migración (Qlik)</option>
+                                <option value="Soporte y Mantenimiento">Soporte y Mantenimiento a Dashboards</option>
+                                <option value="Staffing BI">Asignación de Consultores (Staffing)</option>
+                                <option value="Consultoria Integral">Auditoría Integral de Datos</option>
+                            </select>
+                        </div>
+
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-energy-blue mb-2">Descripción del Reto Operativo (Alcance general)</label>
+                            <textarea name="alcance" rows="4" class="w-full bg-ostion p-3 border border-transparent focus:border-energy-blue outline-none text-sm transition" placeholder="Menciona qué sistemas usan actualmente (SAP, Oracle, Excel manual) y qué objetivo financiero u operativo desean lograr..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="text-right">
+                        <button type="submit" id="submit-btn" class="w-full md:w-auto bg-forest-yellow hover:bg-yellow-400 text-deep-blue font-bold py-4 px-10 transition shadow-lg tracking-wide uppercase text-sm">
+                            Agendar Evaluación
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-deep-blue text-ostion pt-16 pb-8 relative overflow-hidden">
+        
+        <div class="absolute inset-0 opacity-10 pointer-events-none" 
+            style="background-image: linear-gradient(#6B7280 1px, transparent 1px), linear-gradient(90deg, #6B7280 1px, transparent 1px); background-size: 30px 30px;">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row gap-12 mb-12">
+                
+                <div class="flex flex-col items-start w-full md:w-1/3">
+                    <a href="index.html">
+                        <img src="assets/icons/logo/logoRGB_BAM.png" alt="Logo Klammer" class="h-24 w-auto mb-6 object-contain">
+                    </a>
+                    <div class="flex gap-4">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/company/tiklammer" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center text-ostion hover:bg-forest-yellow hover:text-deep-blue transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/tiklammer?igsh=cDcwb254Z3FpeTZj" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center text-ostion hover:bg-forest-yellow hover:text-deep-blue transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-deep-blue border border-energy-blue flex items-center justify-center text-ostion hover:bg-forest-yellow hover:text-deep-blue transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full md:w-2/3">
+                    <div>
+                        <h4 class="font-bold text-xs text-ostion mb-4 uppercase tracking-widest border-b border-forest-yellow pb-2">Sobre Nosotros</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="acerca-de.html" class="hover:text-forest-yellow transition">Acerca de</a></li>
+                            <li><a href="cursos.html" class="hover:text-forest-yellow transition">Cursos</a></li>
+                            <li><a href="consultoria.html" class="hover:text-forest-yellow transition">Consultoría</a></li>
+                            <li><a href="casosexito.html" class="hover:text-forest-yellow transition">Casos de éxito</a></li>
+                            <li><a href="soporte.html" class="hover:text-forest-yellow transition">Soporte</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xs text-ostion mb-4 uppercase tracking-widest border-b border-forest-yellow pb-2">Soluciones</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="BI.html" class="hover:text-forest-yellow transition">Business Intelligence</a></li>
+                            <li><a href="RPA.html" class="hover:text-forest-yellow transition">Robotic Process Automation</a></li>
+                            <li><a href="DDS.html" class="hover:text-forest-yellow transition">Desarrollo de Software</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xs text-ostion mb-4 uppercase tracking-widest border-b border-forest-yellow pb-2">Contáctanos</h4>
+                        <a href="mailto:contacto@klammer.com.mx" class="text-sm text-gray-400 mb-2 hover:text-forest-yellow transition block">
+                            contacto@klammer.com.mx
+                        </a>
+                        <p class="text-sm text-gray-400">T. 871.259.8460</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-forest-yellow flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Klammer. Todos los derechos reservados.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="dataPrivacy.html" class="hover:text-white transition">Data Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const menu = document.getElementById('menu');
+        const overlay = document.getElementById('overlay');
+        const header = document.getElementById('main-header');
+
+        // Scroll: Efecto vidrio en Header
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-dark-blue/90', 'backdrop-blur-sm', 'shadow-md');
+            } else {
+                header.classList.remove('bg-dark-blue/90', 'backdrop-blur-sm', 'shadow-md');
+            }
+        });
+
+        // Funciones de Menú
+        const closeMenu = () => {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            setTimeout(() => menu.classList.add('hidden'), 300);
+        };
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.remove('hidden');
+            setTimeout(() => {
+                menu.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            }, 10);
+        });
+
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        const toggleSubmenu = document.getElementById('toggle-submenu');
+        const mobileSubmenu = document.getElementById('mobile-submenu');
+
+        toggleSubmenu.addEventListener('click', () => {
+            mobileSubmenu.classList.toggle('hidden');
+            mobileSubmenu.classList.toggle('flex');
+            toggleSubmenu.innerText = mobileSubmenu.classList.contains('hidden') ? '+' : '-';
+        });
+
+        const toggleSubmenu2 = document.getElementById('toggle-submenu2');
+        const mobileSubmenu2 = document.getElementById('mobile-submenu2');
+
+        toggleSubmenu2.addEventListener('click', () => {
+            mobileSubmenu2.classList.toggle('hidden');
+            mobileSubmenu2.classList.toggle('flex');
+            toggleSubmenu2.innerText = mobileSubmenu2.classList.contains('hidden') ? '+' : '-';
+        });
+
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.classList.add('opacity-0');
+            setTimeout(() => preloader.style.display = 'none', 500);
+        });
+
+    </script>
+
+    <script>
+    const form = document.getElementById('google-sheet-form');
+    const successDiv = document.getElementById('form-success');
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        
+        fetch(event.target.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                form.classList.add('hidden'); // Oculta el formulario
+                successDiv.classList.remove('hidden'); // Muestra el mensaje de éxito
+            } else {
+                alert("Hubo un error al enviar el mensaje.");
+            }
+        });
+    }
+
+    form.addEventListener('submit', handleSubmit);
+</script>
+</body>
+</html>
